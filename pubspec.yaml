@@ -16,7 +16,7 @@ dependencies:
   path_provider:
   permission_handler: ^6.1.1
   image_gallery_saver: #^1.6.8
-  image:
+  provider:
 
 
   cupertino_icons: ^0.1.3
