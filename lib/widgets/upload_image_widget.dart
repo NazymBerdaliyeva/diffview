@@ -1,14 +1,20 @@
+import 'package:diffview/stores/image/image_store.dart';
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class UploadImage extends StatelessWidget {
-
-
-
+class UploadImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final imageStore = Provider.of<ImageStore>(context);
     return GestureDetector(
       onTap: () {
-       // getImage();
+        imageStore.uploadImage().then(
+              (value) => {
+                imageStore.setImage(),
+                imageStore.decodeImage(),
+              },
+            );
       },
       child: Container(
         color: Colors.brown.shade50,
