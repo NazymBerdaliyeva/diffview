@@ -12,9 +12,6 @@ dependencies:
     sdk: flutter
 
   image_picker: #^0.6.1+4
-  flutter_colorpicker:
-  path_provider:
-  permission_handler: ^6.1.1
   image_gallery_saver: #^1.6.8
   flutter_spinkit:
   provider:

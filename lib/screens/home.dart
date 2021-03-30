@@ -3,13 +3,12 @@ import 'package:diffview/stores/image/image_store.dart';
 import 'package:diffview/widgets/app_bar_widget.dart';
 import 'package:diffview/widgets/loading_widget.dart';
 import 'package:diffview/widgets/upload_image_widget.dart';
+import '../services/my_painter.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
-
-import '../model/touch_points.dart';
-import '../services/my_painter.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key}) : super(key: key);
@@ -20,9 +19,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   GlobalKey globalKey = GlobalKey();
-  final points = <TouchPoints>[];
   ImageStore _imageStore;
-  int start, end;
 
   double opacity = 1.0;
   StrokeCap strokeType = StrokeCap.round;
@@ -108,22 +105,16 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ),
-        Container(
-          width: width * 0.8,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                icon: Icon(Icons.color_lens),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: Icon(Icons.save),
-                onPressed: () {
-                  _imageStore.saveImage(globalKey);
-                },
-              ),
-            ],
+        Align(
+         alignment: Alignment.bottomRight,
+          child: Container(
+            margin: EdgeInsets.only(right: 24),
+            child: TextButton(
+              child: Text('Save', style: TextStyle(fontSize: 20),),
+              onPressed: () {
+                _imageStore.saveImage(globalKey);
+              },
+            ),
           ),
         ),
       ],

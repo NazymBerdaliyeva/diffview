@@ -35,7 +35,7 @@ abstract class _ImageStore with Store {
   @computed
   bool get hasResults =>
       fetchImageFuture != emptyResponse &&
-          fetchImageFuture.status == FutureStatus.fulfilled;
+          fetchImageFuture.status == FutureStatus.fulfilled && pickedFile != null;
 
   @action
   Future uploadImage() async {
@@ -51,6 +51,8 @@ abstract class _ImageStore with Store {
   setImage() {
     if(pickedFile != null) {
       image = File(pickedFile.path);
+    } else {
+    print('Oh no!');
     }
   }
 
@@ -59,8 +61,6 @@ abstract class _ImageStore with Store {
     decodedImage = await decodeImageFromList(image.readAsBytesSync());
     width = decodedImage.width.toDouble();
     height = decodedImage.height.toDouble();
-    print(decodedImage.width);
-    print(decodedImage.height);
   }
 
   @action

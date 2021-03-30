@@ -1,8 +1,9 @@
 import 'package:diffview/providers/paint_provider.dart';
 import 'package:diffview/stores/image/image_store.dart';
+import 'screens/home.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'screens/home.dart';
 
 
 void main() {

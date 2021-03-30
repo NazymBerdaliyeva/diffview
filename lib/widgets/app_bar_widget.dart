@@ -1,4 +1,5 @@
 import 'package:diffview/providers/paint_provider.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -11,8 +11,10 @@ class UploadImageWidget extends StatelessWidget {
       onTap: () {
         imageStore.uploadImage().then(
               (value) => {
-                imageStore.setImage(),
-                imageStore.decodeImage(),
+                if(imageStore.pickedFile != null) {
+                  imageStore.setImage(),
+                  imageStore.decodeImage(),
+                }
               },
             );
       },
